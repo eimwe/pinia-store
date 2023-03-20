@@ -20,7 +20,7 @@ const active = ref(false);
       <div v-if="!cartStore.isEmpty">
         <ul class="items-in-cart">
           <CartItem v-for="(items, name) in cartStore.grouped" :key="name" :product="items[0]" :count="items.length"
-            @updateCount="" @clear="cartStore.clearItem(name)" />
+            @updateCount="cartStore.setItemCount(items[0], $event)" @clear="cartStore.clearItem(name)" />
         </ul>
         <div class="flex justify-end text-2xl mb-5">
           Total: <strong>${{ cartStore.total }}</strong>
