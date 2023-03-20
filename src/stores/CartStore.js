@@ -3,6 +3,9 @@ import { groupBy } from "lodash";
 import { useAuthUserStore } from "./AuthUserStore";
 
 export const useCartStore = defineStore("CartStore", {
+  // delete or set to 'false' to disable undo/redo history
+  historyEnabled: true,
+
   state: () => {
     return {
       items: [],
