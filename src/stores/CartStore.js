@@ -23,7 +23,7 @@ export const useCartStore = defineStore("CartStore", {
 
     total() {
       return this.items.reduce((previousItem, currentItem) => previousItem + currentItem.price, 0);
-    }
+    },
   },
 
   actions: {
@@ -33,6 +33,10 @@ export const useCartStore = defineStore("CartStore", {
       for (let index = 0; index < count; index++) {
         this.items.push({ ...item });
       }
+    },
+
+    clearItem(itemName) {
+      this.items = this.items.filter(item => item.name !== itemName);
     },
   },
 });
