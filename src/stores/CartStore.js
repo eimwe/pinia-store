@@ -20,6 +20,10 @@ export const useCartStore = defineStore("CartStore", {
     grouped() {
       return groupBy(this.items, (item) => item.name);
     },
+
+    total() {
+      return this.items.reduce((previousItem, currentItem) => previousItem + currentItem.price, 0);
+    }
   },
 
   actions: {
