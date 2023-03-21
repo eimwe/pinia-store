@@ -48,6 +48,10 @@ export const useCartStore = defineStore("CartStore", {
       this.items = this.items.filter(item => item.name !== itemName);
     },
 
+    clearCart() {
+      this.items = [];
+    },
+
     setItemCount(item, count) {
       this.clearItem(item.name);
       this.addItems(count, item);
